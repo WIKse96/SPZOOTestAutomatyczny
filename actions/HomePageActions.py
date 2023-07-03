@@ -38,4 +38,16 @@ class HomePageActions(HomePage):
         for idx, highlighted_link in enumerate(highlighted_links):
             assert self.searchTextsDic[1] == highlighted_link.text.lower()
             break
-        print('============================ OK - searcjDesktop ============================')
+    def rules_click(self):
+        self.rules.click()
+    def rules_gifts_click(self):
+        self.rules_gifts.click()
+
+    def rules_services_click(self):
+        self.rules_services.click()
+
+    def rules_opinion_click(self):
+        self.rules_opinion.click()
+
+    def policy_privacy_click(self):
+        self.policy_privacy.click()

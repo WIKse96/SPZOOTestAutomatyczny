@@ -1,6 +1,3 @@
-import time
-
-from selenium.webdriver.common.by import By
 from seleniumpagefactory.Pagefactory import PageFactory
 
 
@@ -37,13 +34,23 @@ class HomePage(PageFactory):
         'menu_meble':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level0')][normalize-space()='Meble']"),
         'toaletki_menu':('xpath', "//div[@id='megamenuwraper']//a[contains(@class,'Level2')][normalize-space()='Toaletki i konsole']"),
         'search_bar':('xpath', "//div[@class='quick-access search-center hidden-xs hidden-sm']/form[@id='search_mini_form']/div[@class='form-search']/input[@id='search']"),
-        'search_btn':('xpath', "//body/div[contains(@class,'wrapper active')]/div[contains(@class,'page active')]/div[contains(@class,'active')]/div[contains(@class,'header active')]/div[contains(@class,'container active')]/div[contains(@class,'table-row active')]/div[contains(@class,'quick-access search-center hidden-xs hidden-sm')]/form[@id='search_mini_form']/div[contains(@class,'form-search')]/button[contains(@title,'Szukaj')]/span[1]")
+        'search_btn':('xpath', "//body/div[contains(@class,'wrapper active')]/div[contains(@class,'page active')]/div[contains(@class,'active')]/div[contains(@class,'header active')]/div[contains(@class,'container active')]/div[contains(@class,'table-row active')]/div[contains(@class,'quick-access search-center hidden-xs hidden-sm')]/form[@id='search_mini_form']/div[contains(@class,'form-search')]/button[contains(@title,'Szukaj')]/span[1]"),
+        'rules':('xpath', "//ul[@class='footer-menu active']//li[@class='active']//a[contains(text(),'Regulamin')]"),
+        'rules_services':('xpath', "//ul[@class='footer-menu active']//a[contains(text(),'Regulamin usług elektronicznych')]"),
+        'rules_opinion':('xpath', "//ul[@class='footer-menu active']//a[normalize-space()='Regulamin opinii']"),
+        'rules_gifts':('xpath', "//a[normalize-space()='Regulamin bonów podarunkowych']"),
+        'policy_privacy':('xpath', "//ul[@class='footer-menu active']//a[contains(text(),'Polityka prywatności')]"),
     }
 
 
 # assertios
     def homePage_assertions(self):
         assert self.loginBtn.element_to_be_clickable()
+        assert self.rules.element_to_be_clickable()
+        assert self.rules_services.element_to_be_clickable()
+        assert self.policy_privacy.element_to_be_clickable()
+
+
         assert self.registerBtn.element_to_be_clickable()
         assert self.b2bLink.visibility_of_element_located()
         assert self.colecctionMenuBtn.element_to_be_clickable()
@@ -64,8 +71,7 @@ class HomePage(PageFactory):
         assert "Meble drewniane z kolekcji Sara pozwolą w piękny, ponadczasowy i funkcjonalny sposób urządzić mieszkanie. Kolekcja Sara to eleganckie, zachwycające w swej prostocie meble z drewna świerkowego." in self.driver.page_source
         assert "Spraw, aby twoje wnętrze stało się przytulne i stylowe. Postaw na dywany retro, dywany nowoczesne lub modne dywany sznurkowe. Dywany z naszej ofert świetnie sprawdzają się w aranżacjach scandi-boho, rustykalnych i nowoczesnych." in self.driver.page_source
         assert "To dzięki naszym Klientom mamy co i dla kogo tworzyć" in self.driver.page_source
-        assert "Copyright (C) 2018 Seart. All rights reserved." in self.driver.page_source
+        assert "Copyright (C) 2023 Seart. All rights reserved." in self.driver.page_source
+        assert "Seart Group Sp. z o.o., Kotlice 103, 26-020 Chmielnik" in self.driver.page_source
         assert self.driver.title == "Meble drewniane od producenta - Seart.pl - Sklep meblowy online"
         assert self.search_bar.visibility_of_element_located()
-
-        print("========================OK - homePage_assertions ========================")
