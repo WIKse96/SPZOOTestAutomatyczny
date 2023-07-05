@@ -1,37 +1,37 @@
 import pytest
+from actions.assertions import Assertions
 
 from utilities.BaseClass import BaseClass
-from pagesObj.HomePage import HomePage
-from actions.HomePageActions import HomePageActions
-from pagesObj.Rules import RulesPage
+from pagesObj.functions import Functions
 
 
 @pytest.mark.usefixtures("setup")
 class TestOne(BaseClass):
+    def test_one(self):
+        func = Functions(self.driver)
+        ass = Assertions(self.driver)
+        # func.goHome()
+        # ass.test_homePage()
+        # func.goRules()
+        # ass.test_rules()
+        # func.gocontanct()
+        # ass.test_contact()
+        # func.goPolicy()
+        # ass.test_policy()
+        # func.goHistory()
+        # ass.test_history()
+        # func.goBankTransfers()
+        # ass.test_BankTransfers()
+        # func.goPayMethod()
+        # ass.test_paymentMethod()
+        func.goRulesElSer()
+        ass.test_rulesElSer()
+        # func.goRulesOpinion()
 
-    def goHome(self):
-        self.driver.get("https://www.seart.pl/")
+        func.goProductSimple()
 
-    def goSales(self):
-        self.driver.get("https://www.seart.pl/wyprzedaz-c-462.html")
 
-    def goSaleProd(self):
-       self.driver.get("https://www.seart.pl/drewniana-szafka-rtv-country-limited-17.html")
 
-    def test_HomePage_and_rules(self, setup):
-        # ODKOMENTOWAĆ DO TESTÓW
-        rules_page = RulesPage(self.driver)
-        homePage = HomePage(self.driver)
-        home_page_actions = HomePageActions(self.driver)
-        homePage.homePage_assertions()
 
-        home_page_actions.loginBtnClick()
-        home_page_actions.searchTest()
-        home_page_actions.menu_homepge()
-        home_page_actions.rules_click()
-        rules_page.rulesPage_assertions()
-        home_page_actions.rules_services_click()
-
-        pass
 
 

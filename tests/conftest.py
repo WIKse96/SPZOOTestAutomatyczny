@@ -8,10 +8,11 @@ from webdriver_manager.core.utils import ChromeType
 
 
 # funkcja odpowiada za konsole. defaultowo jest chrome, moge podac inną przeglądarkę
+store = 'https://dev321.seart.pl/'
 def pytest_addoption(parser):
     parser.addoption(
         "--cat_url"
-        "", action="store", default="https://www.seart.pl//",
+        "", action="store", default=f"{store}",
 
     )
 
