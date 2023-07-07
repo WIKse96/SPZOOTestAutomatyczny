@@ -45,6 +45,8 @@ class Assertions():
                 assert 'Seart Group' in self.driver.page_source
                 assert 'NIP: 6572978750' in self.driver.page_source
                 assert 'tutaj' in self.driver.page_source
-                assert self.driver.find_element(By.XPATH, "//li[contains(text(),'Osoba trzecia, która uzyskała wiadomość o naruszen')]")
+        def test_rulesOpinion(self):
+                assert '(obowiązuje od 01.08.23 r.)' in self.driver.page_source
+                assert 'przez Seart Group sp. z o.o. w Kotlicach nr 103, 26- 020 Chmielnik, NIP: 6572978750, REGON: 52526189500000 (dalej: Seart.pl).' in self.driver.page_source
 
 

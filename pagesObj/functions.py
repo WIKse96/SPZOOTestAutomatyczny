@@ -26,5 +26,3 @@ class Functions():
         self.driver.get(f"{store_var}/formy-platnosci.html")
     def goBankTransfers(self):
         self.driver.get(f"{store_var}/konta-bankowe.html")
-    def goProductSimple(self):
-        self.driver.get(f"{store_var}/lustro-sosnowe-rustyk-pion-poziom.html")

@@ -3,6 +3,7 @@ from actions.assertions import Assertions
 
 from utilities.BaseClass import BaseClass
 from pagesObj.functions import Functions
+from pagesObj.product import Product
 
 
 @pytest.mark.usefixtures("setup")
@@ -24,11 +25,17 @@ class TestOne(BaseClass):
         # ass.test_BankTransfers()
         # func.goPayMethod()
         # ass.test_paymentMethod()
-        func.goRulesElSer()
-        ass.test_rulesElSer()
+        # func.goRulesElSer()
+        # ass.test_rulesElSer()
         # func.goRulesOpinion()
+        # ass.test_rulesOpinion()
 
-        func.goProductSimple()
+    def test_product(self):
+        self.driver.delete_all_cookies()
+        prod = Product(self.driver)
+        prod.goProductSimple()
+        prod.addToCart()
+        prod.fillOut()
 
 
 
